@@ -228,6 +228,8 @@ class Dashboard(QMainWindow):
             p1,p2 = coords[0], coords[1]
             cv2.line(img_copy, p1, p2, (0,255,0), 1)
             cv2.putText(img_copy, "Neck line", (p1[0], p1[1]-10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+            cv2.putText(img_copy, "Neck line", (p1[0], p1[1]-10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
 
         if step >= 4:
@@ -286,8 +288,6 @@ class Dashboard(QMainWindow):
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (90,255,255), 1)
 
         p1, p2, p3, p4 = [to_coords(p) for p in self.clicks]
-
-
 
         # First line
         cv2.line(img, p1, p2, (0, 255, 0), 2)

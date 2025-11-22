@@ -26,9 +26,9 @@ else:
 print("Symlink points to:", os.readlink(face_width_input))
 
 output_folders = {
-    "high": os.path.join(script_dir, "../images/output_images/face_width/1.5_or_more"),
-    "mid": os.path.join(script_dir, "../images/output_images/face_width/1.2_to_1.5"),
-    "low": os.path.join(script_dir, "../images/output_images/face_width/1_to_1.2"),
+    "high": os.path.join(script_dir, "../images/output_images/face_width/0.76_or_more"),
+    "mid": os.path.join(script_dir, "../images/output_images/face_width/0.68_to_0.75"),
+    "low": os.path.join(script_dir, "../images/output_images/face_width/0_to_0.67"),
 }
 for folder in output_folders.values():
     os.makedirs(folder, exist_ok=True)
@@ -183,9 +183,19 @@ class Dashboard(QMainWindow):
 
     def on_click(self, event):
         pos = event.position().toPoint()
+
         # store plain coordinates
         self.clicks.append((pos.x(), pos.y()))
         self.add_log(f"Point clicked: {pos.x()}, {pos.y()}")
+
+        step = len(self.clicks)
+
+        if step == 1:
+            self.add_log("✅ Leftist lateral neck contour recorded.")
+            self.add_log("2️⃣: Click rightist lateral neck contour!")
+
+        if self.raw_img is None:
+            return
 
         # copy image and draw grid
         img_copy = draw_black_grid(self.raw_img.copy(), spacing_px=40)
@@ -195,11 +205,49 @@ class Dashboard(QMainWindow):
         disp_w, disp_h = self.proc_label.width(), self.proc_label.height()
         scale_x, scale_y = w / disp_w, h / disp_h
 
-        # draw all points so far
+        # draw all clicked points so far
+        coords = []
         for i, (x, y) in enumerate(self.clicks):
             cx, cy = int(x * scale_x), int(y * scale_y)
-            color = (0, 255, 0) if i == 0 else (255, 0, 0)
-            cv2.circle(img_copy, (cx, cy), 5, color, -1)  # small dot
+            coords.append((cx,cy))
+
+            if i == 0:
+                cv2.circle(img_copy, (cx, cy), 5, (0, 255, 0), -1)
+            if i == 1:
+                cv2.circle(img_copy, (cx, cy), 5, (0, 255, 0), -1)
+            if i == 2:
+                cv2.circle(img_copy, (cx, cy), 5, (255, 0, 0), -1)
+            if i == 3:
+                cv2.circle(img_copy, (cx, cy), 5, (255, 0, 0), -1)
+
+            cv2.putText(img_copy, f"{i+1}", (cx, cy+13),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+            cv2.putText(img_copy, f"{i+1}", (cx, cy+13),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (90,255,255), 2)
+
+        if step == 1:
+            cv2.line(img_copy,(cx-400, cy), (cx+400, cy), (150,150,150), 1)
+
+        if step >= 2:
+            self.add_log("draw line from p1 to p2")
+            p1,p2 = coords[0], coords[1]
+            cv2.line(img_copy, p1, p2, (0,255,0), 2)
+            cv2.putText(img_copy, "Face width", (p1[0], p1[1]-10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+            cv2.putText(img_copy, "Face width", (p1[0], p1[1]-10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+
+        if step == 3:
+            cv2.line(img_copy,(cx, cy-400), (cx, cy+400), (150,150,150), 1)
+
+        if step >= 4:
+            self.add_log("draw line from p3 to p4")
+            p3,p4 = coords[2], coords[3]
+            cv2.line(img_copy, p3, p4, (255,0,0), 2)
+            cv2.putText(img_copy, "Face height", (p3[0], p4[1]-15),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+            cv2.putText(img_copy, "Face height", (p3[0], p4[1]-15),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
 
         # update preview
         self.proc_label.setPixmap(
@@ -221,14 +269,52 @@ class Dashboard(QMainWindow):
         def to_coords(p):  # p is a tuple (x, y)
             return int(p[0] * scale_x), int(p[1] * scale_y)
 
+        for i, (x, y) in enumerate(self.clicks):
+            cx, cy = int(x * scale_x), int(y * scale_y)
+            cv2.putText(img, f"{i+1}", (cx, cy+13),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+            cv2.putText(img, f"{i+1}", (cx, cy+13),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (90,255,255), 2)
+
         p1, p2, p3, p4 = [to_coords(p) for p in self.clicks]
 
+        # First line
         cv2.line(img, p1, p2, (0, 255, 0), 2)
+
+        # Draw small circles at first-line start
+        cv2.circle(img, p1, 5, (0, 255, 0), -1)
+
+        # Draw small circles at first-line end
+        cv2.circle(img, p2, 5, (0, 255, 0), -1)
+
+        # labelling first line
+        cv2.putText(img, "Face width", (p1[0], p1[1]-10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+        cv2.putText(img, "Face width", (p1[0], p1[1]-10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (90,255,255), 2)
+
+        # Second line
         cv2.line(img, p3, p4, (255, 0, 0), 2)
+
+        # Draw small circles at second-line start
+        cv2.circle(img, p3, 5, (255, 0, 0), -1)
+
+        # Draw small circles at second-line end
+        cv2.circle(img, p4, 5, (255, 0, 0), -1)
+
+        # labelling second line
+        cv2.putText(img, "Face height", (p3[0], p3[1]+100),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+        cv2.putText(img, "Face height", (p3[0], p3[1]+100),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
+
+        # cv2.line(img, p1, p2, (0, 255, 0), 2)
+        # cv2.line(img, p3, p4, (255, 0, 0), 2)
 
         L1 = euclidean(p1, p2)
         L2 = euclidean(p3, p4)
-        ratio = L2 / L1 if L1 else 0
+
+        ratio = L1/ L2 if L1 else 0
 
         # --- Perspective classification ---
         perspective = classify_perspective(p1, p2)
@@ -242,11 +328,11 @@ class Dashboard(QMainWindow):
         cv2.putText(img, f"Ratio: {ratio:.2f}", (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 0), 2)
         self.add_log(f"📏 L1: {L1:.2f}, L2: {L2:.2f}, Ratio: {ratio:.2f}")
 
-        if ratio > 1.5:
+        if ratio > .75:
             folder = output_folders["high"]
-        elif 1.2 <= ratio <= 1.5:
+        elif .68 <= ratio <= .75:
             folder = output_folders["mid"]
-        elif 1.0 <= ratio < 1.2:
+        elif 0 <= ratio < .68:
             folder = output_folders["low"]
         else:
             self.add_log("⚠️ Ratio out of range. Skipped.")
