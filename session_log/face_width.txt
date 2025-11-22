@@ -153,3 +153,149 @@ draw line from p3 to p4
 🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
 📏 L1: 143.14, L2: 216.19, Ratio: 0.66
 ✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0_to_0.67/head and shoulder shot photo_3.jpeg
+🖼️ Processing: head and shoulder shot photo_30.jpeg, 18-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_31.jpeg, 19-th of 58 files 
+Point clicked: 176, 205
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 342, 199
+draw line from p1 to p2
+Point clicked: 258, 125
+draw line from p1 to p2
+Point clicked: 257, 342
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
+📏 L1: 166.11, L2: 217.00, Ratio: 0.77
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0.76_or_more/head and shoulder shot photo_31.jpeg
+🖼️ Processing: head and shoulder shot photo_35.jpeg, 20-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_35.jpeg, 20-th of 58 files 
+Point clicked: 190, 258
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 380, 171
+draw line from p1 to p2
+Point clicked: 218, 77
+draw line from p1 to p2
+Point clicked: 338, 345
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Diagonal, 👁️ Please compare with your own visual judgment!
+📏 L1: 208.97, L2: 293.64, Ratio: 0.71
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0.68_to_0.75/head and shoulder shot photo_35.jpeg
+🖼️ Processing: head and shoulder shot photo_37.jpeg, 21-th of 58 files 
+Point clicked: 154, 211
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 364, 210
+draw line from p1 to p2
+Point clicked: 272, 74
+draw line from p1 to p2
+Point clicked: 273, 361
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
+📏 L1: 210.00, L2: 287.00, Ratio: 0.73
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0.68_to_0.75/head and shoulder shot photo_37.jpeg
+🖼️ Processing: head and shoulder shot photo_39.jpeg, 22-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_4.jpeg, 23-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_40.jpeg, 24-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_41.jpeg, 25-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_45.jpeg, 26-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_5.jpeg, 27-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_50.jpeg, 28-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_51.jpeg, 29-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_52.jpeg, 30-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_53.jpeg, 31-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_55.jpeg, 32-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_56.jpeg, 33-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_57.jpeg, 34-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_6.jpeg, 35-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_64.jpeg, 36-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_65.jpeg, 37-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_67.jpeg, 38-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_69.jpeg, 39-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_7.jpeg, 40-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_70.jpeg, 41-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_39.jpeg, 22-th of 58 files 
+Point clicked: 129, 281
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 388, 213
+draw line from p1 to p2
+Point clicked: 190, 53
+draw line from p1 to p2
+Point clicked: 329, 426
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
+📏 L1: 267.78, L2: 398.06, Ratio: 0.67
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0_to_0.67/head and shoulder shot photo_39.jpeg
+🖼️ Processing: head and shoulder shot photo_4.jpeg, 23-th of 58 files 
+Point clicked: 204, 221
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 373, 224
+draw line from p1 to p2
+Point clicked: 289, 116
+draw line from p1 to p2
+Point clicked: 290, 338
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
+📏 L1: 169.03, L2: 222.00, Ratio: 0.76
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0.76_or_more/head and shoulder shot photo_4.jpeg
+🖼️ Processing: head and shoulder shot photo_40.jpeg, 24-th of 58 files 
+🖼️ Processing: head and shoulder shot photo_41.jpeg, 25-th of 58 files 
+Point clicked: 185, 225
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 333, 225
+draw line from p1 to p2
+Point clicked: 253, 132
+draw line from p1 to p2
+Point clicked: 251, 331
+draw line from p1 to p2
+draw line from p3 to p4
+🖼️ Processing: head and shoulder shot photo_40.jpeg, 24-th of 58 files 
+Point clicked: 219, 221
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 407, 222
+draw line from p1 to p2
+Point clicked: 301, 86
+draw line from p1 to p2
+Point clicked: 301, 370
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
+📏 L1: 188.00, L2: 284.00, Ratio: 0.66
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0_to_0.67/head and shoulder shot photo_40.jpeg
+🖼️ Processing: head and shoulder shot photo_41.jpeg, 25-th of 58 files 
+Point clicked: 184, 216
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 332, 215
+draw line from p1 to p2
+Point clicked: 254, 137
+draw line from p1 to p2
+Point clicked: 253, 333
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
+📏 L1: 148.00, L2: 196.00, Ratio: 0.76
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0.76_or_more/head and shoulder shot photo_41.jpeg
+🖼️ Processing: head and shoulder shot photo_45.jpeg, 26-th of 58 files 
+Point clicked: 137, 231
+✅ Leftist lateral neck contour recorded.
+2️⃣: Click rightist lateral neck contour!
+Point clicked: 339, 207
+draw line from p1 to p2
+Point clicked: 232, 97
+draw line from p1 to p2
+Point clicked: 268, 352
+draw line from p1 to p2
+draw line from p3 to p4
+🧭 Auto-perspective : Front, 👁️ Please compare with your own visual judgment!
+📏 L1: 203.42, L2: 257.53, Ratio: 0.79
+✅ Saved to /home/dragonicbull/image_paranoid/tools/../images/output_images/face_width/0.76_or_more/head and shoulder shot photo_45.jpeg

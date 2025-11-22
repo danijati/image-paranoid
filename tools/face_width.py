@@ -1,4 +1,4 @@
-import sys, os, cv2
+import sys, os, cv2, datetime
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QLabel, QTextEdit, QComboBox
@@ -302,17 +302,20 @@ class Dashboard(QMainWindow):
         # Draw small circles at second-line end
         cv2.circle(img, p4, 5, (255, 0, 0), -1)
 
-        # labelling second line
-        cv2.putText(img, "Face height", (p3[0], p3[1]+100),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
-        cv2.putText(img, "Face height", (p3[0], p3[1]+100),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
+
 
         # cv2.line(img, p1, p2, (0, 255, 0), 2)
         # cv2.line(img, p3, p4, (255, 0, 0), 2)
 
         L1 = euclidean(p1, p2)
         L2 = euclidean(p3, p4)
+
+
+        # labelling second line
+        cv2.putText(img, "Face height", (p3[0], int( p3[1] + L2 * 2/3 ) ),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 3)
+        cv2.putText(img, "Face height", (p3[0], int( p3[1] + L2 * 2/3 ) ),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,255), 2)
 
         ratio = L1/ L2 if L1 else 0
 
@@ -330,14 +333,43 @@ class Dashboard(QMainWindow):
 
         if ratio > .75:
             folder = output_folders["high"]
+            classification = "Width ( > 0.75 )"
         elif .68 <= ratio <= .75:
             folder = output_folders["mid"]
+            classification = "Mid (0.68 - 0.75)"
         elif 0 <= ratio < .68:
             folder = output_folders["low"]
+            classification = "Narrow (0 - 0.67)"
         else:
             self.add_log("⚠️ Ratio out of range. Skipped.")
             return
 
+        # Timestamp
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        legend_x, legend_y = 0, 0
+        cv2.rectangle(img, (legend_x-10, legend_y-20),
+                      (legend_x+240, legend_y+110), (0,0,0), -1)
+        cv2.rectangle(img, (legend_x-10, legend_y-20),
+                      (legend_x+240, legend_y+110), (255,255,255), 1)
+
+        cv2.putText(img, "Legend:", (legend_x, legend_y-5),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+        cv2.putText(img, "Green = Face width", (legend_x, legend_y+15),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+        cv2.putText(img, "Blue = Face height", (legend_x, legend_y+35),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 2)
+
+        # Classification + ratio + timestamp
+        cv2.putText(img, f"Result: {classification}", (legend_x, legend_y+55),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+        cv2.putText(img, f"Ratio: {ratio:.2f}", (legend_x, legend_y+75),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2)
+        cv2.putText(img, f"Time: {timestamp}", (legend_x, legend_y+95),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200,200,200), 2)
+
+
+        # save result
         out_path = os.path.join(folder, os.path.basename(self.filename))
         cv2.imwrite(out_path, img)
         self.last_saved_path = out_path
